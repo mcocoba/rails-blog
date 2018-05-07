@@ -9,6 +9,7 @@ AllCops:
   - 'bin/**/*'
   - 'log/**/*'
   - 'spec/support/materialize_select_helper.rb'
+  - Gemfile
 
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
