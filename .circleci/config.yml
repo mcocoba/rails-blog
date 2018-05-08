@@ -1,6 +1,7 @@
 version: 2
 jobs:
-  build:
+  deploy-job:
+    
     docker:
       - image: circleci/ruby:2.4-node-browsers
         environment:
@@ -14,7 +15,9 @@ jobs:
         environment:
           - POSTGRES_USER=myapp
           - POSTGRES_DB=rails_blog_test
-
+    
+    working_directory: ~/repo
+    
     steps:
       - checkout
 
@@ -71,28 +74,11 @@ jobs:
       - store_artifacts:
           path: ~/rspec
           destination: rails_blog
-  #  build and test jobs go here
-  deploy-job:
-    docker:
-      - image: image
-    working_directory: ~/repo
-    steps:
-      - checkout
+      
       - run:
           name: Bundle Install
           command: bundle check || bundle install
       - run:
           name: Deploy to AWS if tests pass and branch is Master
           command: bundle exec cap production deploy
-  
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build-job
-      - deploy-job:
-          requires:
-            - build-job
-          filters:
-            branches:
-              only: master
+      
