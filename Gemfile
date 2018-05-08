@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +45,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails' #Should already be in your Gemfile
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -71,3 +71,14 @@ jobs:
       - store_artifacts:
           path: ~/rspec
           destination: rails_blog
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build-job
+      - deploy-job:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only: master
