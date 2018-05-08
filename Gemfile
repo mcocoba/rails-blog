@@ -10,11 +10,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
-
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-
 gem 'figaro'
 
 group :development, :test do
@@ -48,9 +46,10 @@ group :development do
   
   gem 'capistrano'
   gem 'capistrano3-puma'
-  gem 'capistrano-rails' #Should already be in your Gemfile
-  gem 'capistrano-bundler'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
+  gem 'capistrano-env-config'
   
 end
 
